@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+int main() {
+    float importo, sconto, prezzoNetto;
+    char continua;
+
+    do {
+        printf("Inserisci l'importo dell'acquisto: ");
+        scanf("%f", &importo);
+
+        if (importo >= 0 && importo <= 500) {
+            sconto = 0.1 * importo;
+        } else if (importo >= 501 && importo <= 1000) {
+            sconto = 0.2 * importo;
+        } else {
+            sconto = 0.3 * importo;
+        }
+
+        prezzoNetto = importo - sconto;
+
+        printf("Sconto del %.0f%%: %.2f€\n", sconto / importo * 100, sconto);
+        printf("Prezzo netto: %.2f€\n", prezzoNetto);
+
+        printf("Vuoi inserire un'altra somma? inserisci S/s per continuare o N/n per fermarti");
+        scanf(" %c", &continua);
+
+    } while (continua == 's' || continua == 'S');
+
+    return 0;
+}

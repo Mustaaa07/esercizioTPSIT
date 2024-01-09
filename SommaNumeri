@@ -1,52 +1,41 @@
 #include <stdio.h>
 
 int main() {
-    int numeroElementi, numero, sommaPositivi = 0, sommaNegativi = 0, conteggioPositivi = 0, conteggioNegativi = 0;
-    float mediaPositivi = 0.0, mediaNegativi = 0.0;
+    int N, numero;
+    int sommaPositivi = 0, sommaNegativi = 0;
+    int conteggioPositivi = 0, conteggioNegativi = 0;
+    float mediaPositivi, mediaNegativi;
 
     // Input del numero di elementi
-    printf("Quanti numeri vuoi inserire? ");
-    scanf("%d", &numeroElementi);
+    printf("Inserisci il numero di elementi: ");
+    scanf("%d", &N);
 
-    // Verifica che il numero di elementi sia maggiore di zero
-    while (numeroElementi <= 0) {
-        printf("Inserisci un numero positivo di elementi.\nReinserire: ");
-        scanf("%d", &numeroElementi);
-    }
-
-    // Input e elaborazione dei numeri
-    for (int i = 0; i < numeroElementi; i++) {
-        printf("Inserisci un numero all'indice %d: ", i + 1);
+    // Input dei numeri e calcoli
+    for (int i = 0; i < N; i++) {
+        printf("Inserisci il numero %d: ", i + 1);
         scanf("%d", &numero);
 
         if (numero > 0) {
             sommaPositivi += numero;
             conteggioPositivi++;
         } else if (numero < 0) {
-            sommaNegativi += -numero; // calcolo del valore assoluto senza la libreria math.h
+            sommaNegativi += -numero;  // Calcola il valore assoluto
             conteggioNegativi++;
         }
+        
     }
 
     // Calcolo delle medie
-    mediaPositivi = 0.0;
-    mediaNegativi = 0.0;
+    mediaPositivi = sommaPositivi / conteggioPositivi;
+    mediaNegativi = sommaNegativi / conteggioNegativi;
 
-    if (conteggioPositivi > 0) {
-        mediaPositivi = (float)sommaPositivi / conteggioPositivi;
-    }
-
-    if (conteggioNegativi > 0) {
-        mediaNegativi = (float)sommaNegativi / conteggioNegativi;
-    }
-
-    // Stampa dei risultati
-    printf("La somma dei numeri positivi e': %d\n", sommaPositivi);
-    printf("La somma dei numeri negativi (in valore assoluto) e': %d\n", sommaNegativi);
-    printf("Il numero di numeri positivi e': %d\n", conteggioPositivi);
-    printf("Il numero di numeri negativi e': %d\n", conteggioNegativi);
-    printf("La media dei numeri positivi e': %.2f\n", mediaPositivi);
-    printf("La media dei numeri negativi e': %.2f\n", mediaNegativi);
+    // Visualizzazione dei risultati
+    printf("\n La somma dei numeri positivi e': %d\n", sommaPositivi);
+    printf(" La somma dei numeri negativi in valore assoluto e': %d\n", sommaNegativi);
+    printf(" Il conteggio dei numeri positivi e': %d\n", conteggioPositivi);
+    printf(" Il conteggio dei numeri negativi e': %d\n", conteggioNegativi);
+    printf(" La media dei numeri positivi e': %f\n", mediaPositivi);
+    printf(" La media dei numeri negativi e': %f\n", mediaNegativi);
 
     return 0;
 }

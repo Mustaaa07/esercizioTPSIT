@@ -1,0 +1,41 @@
+#include<stdio.h>
+
+int main() {
+    int num, N = 1, somma = 0, contatore = 0;
+    
+    // Input del numero di primi da stampare
+    printf("Inserisci il numero di primi da stampare: ");
+    scanf("%d", &num);
+
+    while (num <= 0) {
+        printf("Il numero inserito non può essere negativo o nullo.\n Reinserire: ");
+        scanf("%d", &num);
+    }
+
+    while (num > 0) {
+       
+       int primo = 1;
+       
+        N++;
+
+        for (int i = 2; i < N; i++) {
+            if (N % i == 0) {
+                primo = 0;
+                break;  // Esci immediatamente dal ciclo for se x non è primo
+            }
+        }
+
+        if (primo) {
+            if (contatore % 2 == 0) {
+                printf("%d\n", N);
+                somma += N;
+                num--;
+            }
+            contatore++;
+        }
+    }
+
+    printf("La somma e': %d\n", somma);
+    
+    return 0;
+}

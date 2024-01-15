@@ -1,0 +1,45 @@
+#include <stdio.h>
+
+int main() {
+    // Dichiarazione delle variabili
+    int compratore1 = 0;
+    int compratore2 = 0;
+    int offerte = 0;
+    int vincitore = 0;
+    int offerta;
+
+    printf("Benvenuto all'asta!\n");
+
+    while (1) {
+        // Compratore 1 fa un'offerta
+        printf("Compratore 1, inserisci un'offerta (0 per ritirarsi): ");
+        scanf("%d", &offerta);
+
+        if (offerta == 0) {
+            vincitore = 2;
+            break;
+        }
+
+        compratore1 = offerta;
+        offerte++;
+
+        // Compratore 2 fa un'offerta
+        printf("Compratore 2, inserisci un'offerta (0 per ritirarsi): ");
+        scanf("%d", &offerta);
+
+        if (offerta == 0) {
+            vincitore = 1;
+            break;
+        }
+
+        compratore2 = offerta;
+        offerte++;
+    }
+
+    // Stampa dei risultati dell'asta
+    printf("\nL'asta è terminata!\n");
+    printf("Il compratore %d si è aggiudicato l'asta con un'offerta di %d.\n", vincitore, (vincitore == 1) ? compratore1 : compratore2);
+    printf("Sono state effettuate %d offerte.\n", offerte);
+
+    return 0;
+}

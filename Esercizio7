@@ -1,0 +1,42 @@
+#include <stdio.h>
+
+int main() {
+    int num; 
+    int numero;
+    int massimo; 
+    int minimo;
+
+    printf("Inserisci il numero di elementi: ");
+    scanf("%d", &num);
+
+    //controllo che il numero di elementi sia almeno 1
+    if (num <= 0) {
+        printf("Il numero di elementi deve essere maggiore di 0.\n");
+    }
+    else {
+   
+    printf("Inserisci il numero 1: ");
+    scanf("%d", &numero);
+
+    //inizializzo massimo e minimo con il primo numero inserito
+    massimo = minimo = numero;
+
+    for (int i = 2; i <= num; i++) {
+        printf("Inserisci il numero %d: ", i);
+        scanf("%d", &numero);
+
+        if (numero > massimo) {
+            massimo = numero;
+        }
+
+        if (numero < minimo) {
+            minimo = numero;
+        }
+    }
+
+    
+    printf("Il massimo è: %d\n", massimo);
+    printf("Il minimo è: %d\n", minimo);
+}
+    return 0;  
+}

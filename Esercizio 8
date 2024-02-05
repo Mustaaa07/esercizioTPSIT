@@ -1,0 +1,44 @@
+#include<stdio.h>
+
+int main() {
+    float soldiMario;
+    int giorniTotali = 0, pasteMangiate = 0, paniniMangiati = 0;
+    char scelta;
+
+    printf("Inserisci la quantita di soldi di Mario: ");
+    scanf("%f", &soldiMario);
+
+    while (soldiMario >= 1.0) {
+        printf("Cosa mangera Mario oggi? (P per pastina, N per panino): ");
+        scanf(" %c", &scelta);
+
+        if ((scelta == 'P' || scelta == 'p') && soldiMario >= 1.0) {
+            soldiMario = soldiMario - 1.0;
+            giorniTotali++;
+            pasteMangiate++;
+        } else if ((scelta == 'N' || scelta == 'n') && soldiMario >= 1.5) {
+            soldiMario = soldiMario - 1.5;
+            giorniTotali++;
+            paniniMangiati++;
+        } else {
+            printf("Scelta non valida o non hai abbastanza soldi, riprova. \n");
+        }
+
+        printf("Vuoi continuare a mangiare? (s per sì, altro per no): ");
+        scanf(" %c", &scelta);
+        if (scelta != 's' && scelta != 'S') {
+            break;
+        }
+    }
+    
+    if (soldiMario < 1.0) {
+        printf("Mario ha finito i soldi. \n");
+    }
+    
+    printf("Mario ha mangiato per %d giorni \n", giorniTotali);
+    printf("Numero di paste mangiate: %d \n", pasteMangiate);
+    printf("Numero di panini mangiati: %d \n", paniniMangiati);
+    
+   
+    return 0;
+}

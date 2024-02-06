@@ -1,0 +1,65 @@
+#include <stdio.h>
+
+int main()
+{ // ctrl+maiusc+i per la formattazione
+
+    int giorno, mese, anno, giornoMax, meseMax, annoMax, scelta, contatore, giornoMin, meseMin, annoMin;
+    float prezzoAzione, media, somma = 0, prezzoAzioneMax, prezzoAzioneMin;
+
+    do
+    {
+        printf("inserisci il giorno:");
+        scanf("%d", &giorno);
+
+        while (giorno < 0 || giorno > 30)
+        {
+            printf("il giorno e' sbagliato! reinserisci: ");
+            scanf("%d", &giorno);
+        }
+
+        printf("inserisci il mese: ");
+        scanf("%d", &mese);
+        while (mese < 1 || mese > 12)
+        {
+            printf("il mese e' sbagliato! reinserisci: ");
+            scanf("%d", &mese);
+        }
+
+        printf("inserisci l'anno: ");
+        scanf("%d", &anno);
+        while (anno < 2014 || anno > 2024)
+        {
+            printf("l'anno e' sbagliato! reinserisci: ");
+            scanf("%d", &anno);
+        }
+
+        printf("inserisci il prezzo dell'azione: ");
+        scanf("%f", &prezzoAzione);
+        while (prezzoAzione < 0)
+        {
+            printf("il prezzo non puo' essere minore di 0! reinserisci: ");
+            scanf("%d", &prezzoAzione);
+        }
+        if (prezzoAzione > prezzoAzioneMax)
+        {
+            prezzoAzioneMax = prezzoAzione;
+            giornoMax = giorno;
+            meseMax = mese;
+            annoMax = anno;
+        }
+        if (prezzoAzione > prezzoAzioneMin)
+        {
+            prezzoAzioneMin = prezzoAzione;
+            giornoMin = giorno;
+            meseMin = mese;
+            annoMin = anno;
+        }
+        contatore++;
+        somma = somma + prezzoAzione;
+        printf("inserisci un numero diverso da 1 per smettere di inserire i numeri senno' inserisci 1 per continuare");
+        scanf("%d", &scelta);
+
+    } while (scelta == 1);
+
+    return 0;
+}

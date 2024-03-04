@@ -1,0 +1,107 @@
+#include <stdio.h>
+
+int main() {
+    int dim;
+    
+    printf("Inserisci la dimensione del vettore: ");
+    scanf("%d", &dim);
+    
+    while (dim <= 0) {
+        printf("Inserisci un numero maggiore di zero: ");
+        scanf("%d", &dim);
+    }
+    
+    int numeri[dim];
+    int numeri_pari[dim];
+    int numeri_dispari[dim];
+    
+    
+    
+    
+    for (int i = 0; i < dim; i++) {
+        printf("Inserisci il numero %d: ", i + 1);
+        scanf("%d", &numeri[i]);
+        
+        while (numeri[i] <= 0) {
+            printf("Numero non valido. Inserisci un numero maggiore di zero: ");
+            scanf("%d", &numeri[i]);
+        }
+        
+        if (numeri[i] % 2 == 0) {
+            numeri_pari[i] = numeri[i];
+            numeri_dispari[i] = 0;
+        } else {
+            numeri_dispari[i] = numeri[i];
+            numeri_pari[i] = 0;
+        }
+    }
+    
+    double media = 0.0;
+    double media_pari = 0.0;
+    double media_dispari = 0.0;
+    int conteggio_pari = 0;
+    int conteggio_dispari = 0;
+    int somma_pari = 0;
+    int somma_dispari = 0;
+    
+    for (int i = 0; i < dim; i++) {
+        media += numeri[i];
+        
+        if (numeri_pari[i] != 0) {
+            conteggio_pari++;
+            somma_pari += numeri_pari[i];
+        }
+        
+        if (numeri_dispari[i] != 0) {
+            conteggio_dispari++;
+            somma_dispari += numeri_dispari[i];
+        }
+    }
+    
+    if (dim != 0) {
+        media /= dim;
+    }
+    
+    if (conteggio_pari != 0) {
+        media_pari = (double)somma_pari / conteggio_pari;
+    }
+    
+    if (conteggio_dispari != 0) {
+        media_dispari = (double)somma_dispari / conteggio_dispari;
+    }
+    
+    int max_pari = numeri_pari[0];
+    int min_pari = numeri_pari[0];
+    int max_dispari = numeri_dispari[0];
+    int min_dispari = numeri_dispari[0];
+    
+    for (int i = 1; i < dim; i++) {
+        if (numeri_pari[i] != 0) {
+            if (numeri_pari[i] > max_pari) {
+                max_pari = numeri_pari[i];
+            }
+            if (numeri_pari[i] < min_pari) {
+                min_pari = numeri_pari[i];
+            }
+        }
+        
+        if (numeri_dispari[i] != 0) {
+            if (numeri_dispari[i] > max_dispari) {
+                max_dispari = numeri_dispari[i];
+            }
+            if (numeri_dispari[i] < min_dispari) {
+                min_dispari = numeri_dispari[i];
+            }
+        }
+    }
+    
+    printf("\nMedia dei numeri inseriti: %.2f\n", media);
+    printf("Media dei numeri pari inseriti: %.2f\n", media_pari);
+    printf("Media dei numeri dispari inseriti: %.2f\n", media_dispari);
+    printf("Massimo dei numeri pari inseriti: %d\n", max_pari);
+    printf("Minimo dei numeri pari inseriti: %d\n", min_pari);
+    printf("Massimo dei numeri dispari inseriti: %d\n", max_dispari);
+    printf("Minimo dei numeri dispari inseriti: %d\n", min_dispari);
+    
+    return 0;
+}

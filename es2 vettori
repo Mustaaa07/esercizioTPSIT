@@ -1,0 +1,57 @@
+#include <stdio.h>
+int main() {
+    int dim;
+   
+   do{
+       printf("inserisci la lunghezza del vettore: ");
+       scanf("%d",&dim);
+   }while(dim<=0);
+   
+   int array[dim];
+   int pari[dim];
+   int dispari[dim];
+    
+    printf("inserisci i valori del vettore: ");
+   for(int i=0;i<dim;i++){
+       
+       scanf("%d",&array[i]);
+   }
+    
+    int contaPari = 0;
+    int contaDispari = 0;
+    
+    for(int i=0;i<dim;i++){
+        
+        if(array[i] % 2 == 0){
+            
+            pari[contaPari++]= array[i];
+            
+        }
+        else{
+            dispari[contaDispari++]= array[i];
+        }
+        
+    }
+    
+    if (contaPari > 0) {
+        printf("I valori pari sono: ");
+        for(int i = 0; i < contaPari; i++) {
+            printf("%d ", pari[i]);
+        }
+    } else {
+        printf("Non ci sono numeri pari.\n");
+    }
+    
+    if (contaDispari > 0) {
+        printf("\nI valori dispari sono: ");
+        for(int i = 0; i < contaDispari; i++) {
+            printf("%d ", dispari[i]);
+        }
+    } else {
+        printf("\nNon ci sono numeri dispari.\n");
+    }
+    
+    return 0;
+}
+    
+    

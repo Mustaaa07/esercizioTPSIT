@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+int main() {
+   int dim;
+   
+   do{
+       printf("inserisci la lunghezza dei vettori: ");
+       scanf("%d",&dim);
+   }while(dim<=0);
+   
+   int array[dim];
+   int array2[dim];
+   int somma[dim];
+   
+   printf("inserisci i valori del primo vettore: ");
+   for(int i=0;i<dim;i++){
+       
+       scanf("%d",&array[i]);
+   }
+    
+    printf("inserisci i valori del secondo vettore: ");
+   for(int i=0;i<dim;i++){
+       
+       scanf("%d",&array2[i]);
+   }   
+   
+   printf("le somme sono: ");
+   
+   for(int i=0;i<dim;i++){
+       
+       somma[i]=array[i]+array2[i];
+       
+       printf("%d ",somma[i]);
+   }
+   
+   
+    return 0;
+}
+
